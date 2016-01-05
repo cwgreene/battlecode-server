@@ -943,6 +943,14 @@ public class GameWorld implements SignalHandler {
         addSignal(s);
     }
 
+    @SuppressWarnings("unused")
+    public void visitRepairSignal(RepairSignal s) {
+        InternalRobot other = getObjectByID(s.getRepairedRobotID());
+        other.changeHealthLevel(GameConstants.ARCHON_REPAIR_AMOUNT);
+        addSignal(s);
+    }
+
+
     @SuppressWarnings({"unchecked", "unused"})
     public void visitSpawnSignal(SpawnSignal s) {
         // This robot has no id.
